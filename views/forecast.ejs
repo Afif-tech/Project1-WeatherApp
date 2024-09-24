@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Weather Forecast</title>
+</head>
+<body class="forecast-body">
+    <div class="main-container">
+        
+        <div class="one">
+            <h1><%= location %></h1>
+            <h2>Latitude: <%= latlong.latitude %> | Longitude: <%= latlong.longitude %></h2>
+        </div>
+
+        <div class="two">
+            <div class="details">
+                <p>Temperature: <%= currentWeather.temperature %>°C</p>
+                <p>Wind Speed: <%= currentWeather.windspeed %> km/h</p>
+                <p>Wind Direction: <%= currentWeather.winddirection%>°</p>
+            </div>
+            <div class="weather-emoji-two">
+                <p><%= currentWeather.emoji %></p>
+            </div>
+        </div>
+
+        <div class="three">
+            <ul>
+                <% hourlyForecast.forEach((temp, index) => { %>
+                    <li>
+                        <p class="weather-emoji"><%= hourlyEmojis[index] %></p>
+                        <p><%= hourlyTimes[index] %></p>
+                        <p><%= temp %>°C</p>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
